@@ -1,0 +1,239 @@
+/* General Reset */
+/* General PrimePicks Style */
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@font-face {
+	font-family: 'bpicons';
+	font-weight: normal;
+	font-style: normal;
+
+	src: url('../fonts/bpicons/bpicons.eot');
+	src: url('../fonts/bpicons/bpicons.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/bpicons/bpicons.woff') format('woff'),
+	url('../fonts/bpicons/bpicons.ttf') format('truetype'),
+	url('../fonts/bpicons/bpicons.svg#bpicons') format('svg');
+} /* Made with http://icomoon.io/ */
+
+/* Resets */
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	font-size: 100%;
+	margin: 60px 0 0 0;
+	padding: 0;
+}
+
+/* Helper classes */
+.cf:before,
+.cf:after {
+	content: ' ';
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.hidden {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Main styles */
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	color: #CECECE;
+	background: #2A2B30;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Styling */
+.main-header {
+    width: 100%;
+    background-color: rgba(30, 31, 45, 0.9);
+    padding: 13px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+}
+
+.main-header .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the active page link */
+.main-nav ul li a.active {
+    color: #00d4ff;
+    border-radius: 5px; /* Optional: to make it look nicer */
+    margin: 10px 15px; /* Optional: adjust padding for better alignment */
+    text-decoration: none;
+    font-size: 20px ;
+}
+
+/* Optional: Hover effect */
+.main-nav ul li a:hover {
+    color: white;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px; /* Add some space between the image and the text */
+}
+
+.logo a {
+    font-size: 28px;
+    font-weight: 600;
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+
+/* Navigation Menu Styling */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    font-size: 16px;
+    color: #fff;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #00d4ff;
+}
+
+.main-nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #00d4ff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* whatsapp icon */
+.cta-btn {
+    background-color: #25D366; /* WhatsApp Green */
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cta-btn i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.cta-btn:hover {
+    background-color: #1ebc57;
+    transform: translateY(-3px);
+}
+
+
+.footer_section{
+    align-content: center;
+    margin-top: 10px;
+    text-align: center; /* Center text horizontally */
+    width: 100%; /* Make footer full width */
+    position: relative; /* Ensure footer is relative to document flow */
+    margin-bottom: 0; /* Adjust if needed */
+    padding: 10px; /* Adjust as needed */
+
+}
+.main-content {
+    flex: 1; /* Ensures the main content takes up remaining space */
+}
+
+/* CTA Button Styling */
+.cta-btn {
+    background-color: #00d4ff;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #00a3cc;
+    transform: translateY(-3px);
+}
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .main-nav ul {
+        gap: 20px;
+    }
+
+    .cta-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 15px 0;
+    }
+
+    .logo a {
+        font-size: 22px;
+    }
+
+    .main-nav ul {
+        display: none; /* Hide navigation for mobile, you can add a hamburger menu here */
+    }
+
+    .cta-btn {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}

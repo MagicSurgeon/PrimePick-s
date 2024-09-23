@@ -1,0 +1,124 @@
+/* Comparison Basket Styling */
+.comparison-basket {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* Responsive width */
+    max-width: 500px; /* Maximum width */
+    background-color: #2A2B30;
+    border: 1px solid #00d4ff;
+    padding: 0 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    z-index: 1000;
+    display: flex; /* Flexbox for main layout */
+    flex-direction: column; /* Column layout for header and items */
+}
+
+.basket-header {
+    display: flex; /* Flexbox for header layout */
+    justify-content: space-between; /* Space elements evenly */
+    align-items: center; /* Align items vertically center */
+}
+
+.basket-items {
+    display: flex; /* Flexbox to align items in a row */
+    justify-content: center; /* Center basket items */
+    margin: 10px 0; /* Space between header and items */
+    width: 100%; /* Full width for the basket items */
+}
+
+.basket-item {
+    background-color: #3A3B40;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center; /* Center the image */
+    align-items: center;
+    width: 26%;
+    height: 79px;
+    margin: auto;
+}
+
+.basket-item img {
+    max-width: 100%; /* Ensure images fit the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+#compare-button {
+    margin-left: 10px; /* Space between items and button */
+    height: 40px; /* Optional height for consistency */
+}
+
+.basket-slot {
+    position: relative; /* For positioning the icon */
+}
+
+.product-image {
+    width: 100%; /* Adjust width as necessary */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Optional: round corners */
+}
+
+.add-icon {
+    font-size: 24px; /* Size of the icon */
+    color: #00d4ff; /* Icon color */
+    cursor: pointer; /* Pointer on hover */
+    display: flex;
+    justify-content: center; /* Center the icon */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Fill the height of the basket slot */
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+.remove-icon {
+    position: absolute; /* Position at the top corner */
+    top: -5px;
+    right: 3px;
+    font-size: 20px;
+    color: red; /* Color for visibility */
+    cursor: pointer; /* Pointer on hover */
+}
+
+
+@keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-5px); }
+    50% { transform: translate(5px); }
+    75% { transform: translate(-5px); }
+    100% { transform: translate(0); }
+}
+
+/* Adjust the font size and responsiveness */
+@media screen and (max-width: 480px) {
+    .comparison-basket {
+        height: 83px;
+    }
+    .basket-header {
+        height: 81px;
+    }
+    .basket-header h3{
+        font-size: 12px;
+    }
+    .basket-item {
+        height: 61px;
+    }
+    #compare-button {
+        height: 32px;
+        width: 77px;
+        font-size: 10px;
+    }
+    .remove-icon {
+        top: -4px;
+        right: 2px;
+        font-size: 16px;
+    }
+    .add-icon {
+        height: 55%;
+        width: 1900%;
+    }
+}

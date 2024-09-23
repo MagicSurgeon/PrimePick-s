@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "title": "The Rise of 5G: How It’s Transforming Mobile Connectivity",
+        "description": "Discover how 5G is revolutionizing mobile networks with faster speeds and enhanced connectivity.",
+        "likes": 120,
+        "comments": 45,
+        "views": 300,
+        "shares": 12,
+        "image": "images/The_Rise_of_5G.png"
+    },
+    {
+        "id": "2",
+        "title": "The Future of Foldable Phones: Are They Worth the Hype?",
+        "description": "Explore the rise of foldable phones and whether they are a trend or the future of mobile devices.",
+        "likes": 98,
+        "comments": 30,
+        "views": 250,
+        "shares": 15,
+        "image": "images/The_Future_of_Foldable_Phones.jpg"
+    },
+    {
+        "id": "3",
+        "title": "Mobile AI: How Artificial Intelligence is Changing Smartphones",
+        "description": "Learn how AI-powered features are enhancing the user experience in modern smartphones.",
+        "likes": 140,
+        "comments": 50,
+        "views": 350,
+        "shares": 20,
+        "image": "images/Mobile_AI.jpg"
+    },
+    {
+        "id": "4",
+        "title": "Battery Technology: Innovations Driving Longer Mobile Life",
+        "description": "Understand the latest advancements in battery technology that are increasing smartphone longevity.",
+        "likes": 110,
+        "comments": 20,
+        "views": 270,
+        "shares": 18,
+        "image": "images/Battery_Technology.png"
+    },
+    {
+        "id": "5",
+        "title": "Mobile Photography: How Smartphones Are Replacing Cameras",
+        "description": "Dive into the evolution of mobile photography and how smartphones are challenging traditional cameras.",
+        "likes": 130,
+        "comments": 40,
+        "views": 320,
+        "shares": 25,
+        "image": "images/Mobile_Photography.jpg"
+    },
+    {
+        "id": "6",
+        "title": "AR and VR in Mobile: The Next Big Thing in Entertainment",
+        "description": "See how augmented and virtual reality are shaping the future of immersive experiences on mobile devices.",
+        "likes": 125,
+        "comments": 35,
+        "views": 300,
+        "shares": 22,
+        "image": "images/AR_and_VR_in_Mobile.png"
+    }
+]
