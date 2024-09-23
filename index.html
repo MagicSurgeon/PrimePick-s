@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>PrimePick's &amp; Product Comparison</title>
+    <meta name="description" content="Magic!Surgeon - An elegantly responsive product comparison layout, seamlessly integrated with dynamic comparison functionality." />
+    <meta name="keywords" content="PrimePick's - Magic!Surgeon" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="images/logo/logo3.png"> <!-- icon on tab -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/body.css" />
+    <link rel="stylesheet" type="text/css" href="css/card_section.css" />
+    <link rel="stylesheet" href="css/Hero_section.css">
+    <link rel="stylesheet" href="css/compare_popup.css">
+    <link rel="stylesheet" href="css/preview.css">
+    <script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+
+   <!-- Main view -->
+    <div class="view">
+        <header class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/logo/logo3.png" alt="">
+                    <a href="index.html">PrimePick's</a>
+                </div>
+                <nav class="main-nav" id="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="right-menu">
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="cta-btn">
+                        <i class="fa fa-whatsapp"><b>Join Us</b></i>
+                    </a>
+                    <div class="menu-dots" id="menu-dots">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- Compare basket -->
+    <div id="comparison-basket" class="comparison-basket">
+        <div class="basket-header">
+            <h3>Compare Products</h3>
+            <div class="basket-items">
+                <div class="basket-item basket-slot">
+                    <span class="remove-icon" style="display:none;">&times;</span> <!-- X icon -->
+                    <img src=""  class="product-image">
+                    <span class="add-icon" onclick="scrollToProductList()">+</span>
+                </div>
+                <div class="basket-item basket-slot">
+                    <span class="remove-icon" style="display:none;">&times;</span> <!-- X icon -->
+                    <img src=""  class="product-image"> <!-- No image here initially -->
+                    <span class="add-icon" onclick="scrollToProductList()">+</span>
+                </div>
+                <div class="basket-item basket-slot">
+                    <span class="remove-icon" style="display:none;">&times;</span> <!-- X icon -->
+                    <img src="" class="product-image">
+                    <span class="add-icon" onclick="scrollToProductList()">+</span>
+                </div>
+            </div>
+            <button id="compare-button" class="cta-btn" onclick="showComparisonPopup()">Compare</button>
+        </div>
+    </div> 
+
+    <!-- Comparison Screen -->
+    <div id="comparisonScreen" style="display:none;">
+        <button class="close-button" onclick="closeComparison()"><i class="fa fa-times"></i></button>
+        <div id="comparisonContainer"></div>
+    </div>
+
+
+    
+
+    <!-- Combined Hero and Content Section -->
+    <div class="main-content"> <!-- New Wrapper for Hero + Content -->
+        <!-- Hero section start -->
+        <div class="hero">
+            <h1 class="hero-heading" style="font-size: 3.3rem;">Find Your Perfect Mobile Match</h1>
+            <p class="hero-caption">"Compare the latest mobiles side-by-side and discover the best device for your needs. Simple, fast, and tailored to help you make the right choice!"</p>
+            <div class="down">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="7 13 12 18 17 13"></polyline>
+                    <polyline points="7 6 12 11 17 6"></polyline>
+                </svg>
+            </div>
+        </div>
+        <!-- Hero section end -->
+
+        <!-- Product grid (Content) -->
+        <div class="content" id="product_list">
+            <div class="grid" id="productList"></div> <!-- Container for dynamically loaded products -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    fetch('json/products.json')
+                        .then(response => response.json())
+                        .then(products => {
+                            const productContainer = document.getElementById('productList');
+                            products.forEach(product => {
+                                const productElement = document.createElement('div');
+                                productElement.className = 'product';
+                                productElement.id = `product-${product.id}`;
+                                productElement.innerHTML = `
+                                        <div class="product__info">
+                                            <img class="product__image" src="${product.image}" alt="Image of ${product.modelName}" />
+                                            <h3 class="product__title animated-heading">${product.modelName}</h3>
+                                            <div class="product__details highlight extra">
+                                                <div class="product__heading">General Specifications</div>
+                                                <div class="product__detail"><span class="product__label">Model Name:</span><span class="product__value">${product.modelName}</span></div>
+                                                <div class="product__detail"><span class="product__label">Release Date:</span><span class="product__value">${product.releaseDate}</span></div>
+                                                <div class="product__detail"><span class="product__label">Operating System:</span><span class="product__value">${product.operatingSystem}</span></div>
+                                                <div class="product__detail"><span class="product__label">User Interface:</span><span class="product__value">${product.userinterface}</span></div>
+                    
+                                                <div class="product__heading">Design and Build</div>
+                                                <div class="product__detail"><span class="product__label">Dimensions:</span><span class="product__value">${product.dimensions}</span></div>
+                                                <div class="product__detail"><span class="product__label">Weight:</span><span class="product__value">${product.weight}</span></div>
+                                                <div class="product__detail"><span class="product__label">Build Materials:</span><span class="product__value">${product.buildMaterials}</span></div>
+                                                <div class="product__detail"><span class="product__label">Colors Available:</span><span class="product__value">${product.colors.join(', ')}</span></div>
+                    
+                                                <div class="product__heading">Display</div>
+                                                <div class="product__detail"><span class="product__label">Type:</span><span class="product__value">${product.displayType}</span></div>
+                                                <div class="product__detail"><span class="product__label">Size:</span><span class="product__value">${product.displaySize}</span></div>
+                                                <div class="product__detail"><span class="product__label">Resolution:</span><span class="product__value">${product.displayResolution}</span></div>
+                                                <div class="product__detail"><span class="product__label">Refresh Rate:</span><span class="product__value">${product.displayrefreshrate}</span></div>
+                                                <div class="product__detail"><span class="product__label">Protection:</span><span class="product__value">${product.displayprotection}</span></div>
+                    
+                                                <div class="product__heading">Performance</div>
+                                                <div class="product__detail"><span class="product__label">Processor:</span><span class="product__value">${product.processor}</span></div>
+                                                <div class="product__detail"><span class="product__label">GPU:</span><span class="product__value">${product.gpu}</span></div>
+                                                <div class="product__detail"><span class="product__label">RAM:</span><span class="product__value">${product.ram}</span></div>
+                                                <div class="product__detail"><span class="product__label">Storage Options:</span><span class="product__value">${product.storageOptions.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Expandable Storage:</span><span class="product__value">${product.expandableStorage}</span></div>
+                    
+                                                <div class="product__heading">Battery</div>
+                                                <div class="product__detail"><span class="product__label">Capacity:</span><span class="product__value">${product.batteryCapacity}</span></div>
+                                                <div class="product__detail"><span class="product__label">Type:</span><span class="product__value">${product.chargingType}</span></div>
+                                                <div class="product__detail"><span class="product__label">Charging:</span><span class="product__value">${product.charging}</span></div>
+                                                <div class="product__detail"><span class="product__label">Charging Speed:</span><span class="product__value">${product.chargingSpeed}</span></div>
+                    
+                                                <div class="product__heading">Camera</div>
+                                                <div class="product__detail"><span class="product__label">Rear Camera(s):</span><span class="product__value">${product.rearCameras.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Main Sensor:</span><span class="product__value">${product.mainSensor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Secondary Sensors:</span><span class="product__value">${product.secondarySensors.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Front Camera:</span><span class="product__value">${product.frontCamera}</span></div>
+                    
+                                                <div class="product__heading">Connectivity</div>
+                                                <div class="product__detail"><span class="product__label">Network:</span><span class="product__value">${product.network}</span></div>
+                                                <div class="product__detail"><span class="product__label">Wi-Fi:</span><span class="product__value">${product.wifi}</span></div>
+                                                <div class="product__detail"><span class="product__label">Bluetooth:</span><span class="product__value">${product.bluetooth}</span></div>
+                                                <div class="product__detail"><span class="product__label">GPS:</span><span class="product__value">${product.gps}</span></div>
+                                                <div class="product__detail"><span class="product__label">USB:</span><span class="product__value">${product.usb}</span></div>
+                                                <div class="product__detail"><span class="product__label">NFC:</span><span class="product__value">${product.nfc}</span></div>
+                    
+                                                <div class="product__heading">Audio</div>
+                                                <div class="product__detail"><span class="product__label">Speakers:</span><span class="product__value">${product.speakers}</span></div>
+                                                <div class="product__detail"><span class="product__label">Audio Jack:</span><span class="product__value">${product.audioJack}</span></div>
+
+                                                <div class="product__heading">Sensors</div>
+                                                <div class="product__detail"><span class="product__label">Face ID:</span><span class="product__value">${product.faceId}</span></div>
+                                                <div class="product__detail"><span class="product__label">Accelerometer:</span><span class="product__value">${product.accelerometer}</span></div>
+                                                <div class="product__detail"><span class="product__label">Gyroscope:</span><span class="product__value">${product.gyroscope}</span></div>
+                                                <div class="product__detail"><span class="product__label">Proximity Sensor:</span><span class="product__value">${product.proximitysensor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Compass:</span><span class="product__value">${product.compass}</span></div>
+                                                <div class="product__detail"><span class="product__label">Barometer:</span><span class="product__value">${product.barometer}</span></div>
+
+                                                <div class="product__heading">Additional Features</div>
+                                                <div class="product__detail"><span class="product__label">Sensors:</span><span class="product__value">${product.sensors.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Water Resistance:</span><span class="product__value">${product.waterResistance}</span></div>
+                                                <div class="product__detail"><span class="product__label">Dust Resistance:</span><span class="product__value">${product.dustResistance}</span></div>
+                                                <div class="product__detail"><span class="product__label">Stereo Speakers:</span><span class="product__value">${product.stereoSpeakers}</span></div>
+                                                
+                                                <div class="product__heading">PrimePick's Conculsion</div>
+                                                <div class="product__detail"><span class="product__label">Perfect For: </span><span class="product__value">id=${product.perfectfor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Not Ideal For: </span><span class="product__value">${product.notperfectfor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Best Feature's: </span><span class="product__value">${product.bestfeatures}</span></div>
+                                            
+                                            </div>
+                                            <div class="product__price-section">
+                                            <span class="product__price animated-price">Price: ₹${product.price}</span>
+                                            <span class="product__discount">${product.discount}% Off</span>
+                                            <span class="product__mrp">MRP: ₹${product.mrp}</span>
+                                        </div>
+                                        <span class="product__platform highlight">Available on: ${product.availability}</span>
+                                        <button class="action action--button action--info">
+                                            <span class="fa fa-info-circle">
+                                                <a href="product_details.html?id=${product.id}"> &nbsp; More Info </a>
+                                            </span>
+                                        </button>
+                                        <label class="action action--compare-add" data-id="${product.id}" onclick="toggleBasket(${product.id})">
+                                            <input class="check-hidden" type="checkbox" />
+                                            <i class="fa fa-plus"></i>
+                                            <i class="fa fa-check" style="display:none;"></i>
+                                            <span class="action__text action__text--invisible add-to-compare">Add to compare</span>
+                                        </label>
+                                    </div>
+                                    <!-- product compare wrapper -->
+                                    <section class="compare">
+                                        <button class="action action--close"><i class="fa fa-remove"></i><span class="action__text action__text--invisible">Close comparison overlay</span></button>
+                                    </section>
+                                `;
+                                productContainer.appendChild(productElement);
+                            });
+                        })
+                        .catch(error => console.error('Error fetching products:', error));
+                });
+            </script>
+        </div>
+        </div>
+    <div id="footer-placeholder" class="footer_section" style="padding: 0;"></div>
+
+
+    <!-- foooer Section Start-->
+    <script>
+        // Function to load the footer
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        }
+
+        // Call the function to load the footer
+        loadFooter();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- foooer Section end-->
+     <script src="js/preview.js"></script>
+    <script src="js/Hero_section.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<style>
+
+.footer {
+    position: relative;
+    width: 100%;
+    background: #3586ff;
+    padding: 0;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+
+.wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("https://i.ibb.co/wQZVxxk/wave.png");
+    background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    top: -100px;
+    animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+    z-index: 999;
+    opacity: 0.5;
+    top: -90px;
+    animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+    z-index: 1000;
+    opacity: 0.2;
+    top: -85px;
+    animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+    z-index: 999;
+    opacity: 0.7;
+    top: -80px;
+    animation: animate 3s linear infinite;
+}
+
+.mainfoot {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 40px 50px 13px 50px;
+    margin-top: -86px; 
+    background-color: #3586ff;
+}
+
+.branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.branding-row {
+    display: flex;
+    align-items: center;
+}
+
+.branding img {
+    width: 69px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.email-box {
+    margin-top: 20px;
+}
+
+.email-box input {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.email-box button {
+    padding: 10px 15px;
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.email-box button:hover {
+    background-color: #ff6c62;
+}
+
+.menu {
+    list-style: none;
+    margin: 10px;
+}
+
+.menu__item {
+    margin-bottom: 10px;
+}
+
+.menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+    transition: 0.5s;
+}
+
+.menu__link:hover {
+    opacity: 1;
+}
+
+.address p {
+    color: #fff;
+    margin: 23px 0;
+    font-size: 1rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+}
+
+.address ion-icon {
+    margin-right: 8px;
+    color: #fff;
+}
+
+.ctr img {
+    width: 119px;
+}
+
+.basefoot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 50px;
+    background-color: #3586ff;
+}
+
+.qoute {
+    flex: 1;
+    text-align: center; 
+    position: relative; 
+    padding: 10px;
+}
+
+.qoute p {
+    font-size: 1rem; 
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-style: italic; 
+    line-height: 1.5; 
+    position: relative; 
+    display: inline-block; 
+}
+
+.qoute::before {
+    content: open-quote;
+    font-size: 3rem; 
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    top: -20px; 
+    left: -20px; 
+}
+
+.qoute::after {
+    content: close-quote; 
+    font-size: 3rem; 
+    color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    bottom: -20px; 
+    right: -20px; 
+}
+
+
+.social-icon {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.social-icon ul {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon__item {
+    list-style: none;
+}
+
+.social-icon__link {
+    font-size: 2rem;
+    color: #fff;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.social-icon__link:hover {
+    transform: translateY(-10px);
+    color: #f1b65a;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+@keyframes animateWaves {
+    0% {
+        background-position-x: 1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: -1000px;
+    }
+
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+</style>
+<body>
+    <footer class="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+
+        <div class="mainfoot">
+            <div class="branding">
+                <div class="branding-row">
+                    <img src="images/logo/logo3.png" alt="Brand Logo">
+                    <p class="brand-name">Prime Pick's</p>
+                </div>
+                <div class="email-box">
+                    <input type="email" placeholder="Enter your email" />
+                    <button>Subscribe</button>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li class="menu__item"><a class="menu__link" href="index.html">Home</a></li>
+                <li class="menu__item"><a class="menu__link" href="about.html">About</a></li>
+                <li class="menu__item"><a class="menu__link" href="services.html">Services</a></li>
+                <li class="menu__item"><a class="menu__link" href="blog.html">Blog</a></li>
+                <li class="menu__item"><a class="menu__link" href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="address">
+                <p><ion-icon name="location-outline"></ion-icon> 123 Street Name</p>
+                <p><ion-icon name="home-outline"></ion-icon> City, State, 12345</p>
+                <p><ion-icon name="mail-outline"></ion-icon> Email: info@example.com</p>
+                <p><ion-icon name="call-outline"></ion-icon> Phone: (+91) 663-456-7890</p>
+            </div>
+
+            <div class="ctr">
+                <img src="images/Cartoon.png" alt="Brand Image">
+            </div>
+        </div>
+
+        <div class="basefoot">
+            <div class="qoute">
+                <!-- <p>"Thank you for being a part of our journey. Together, we turn dreams into reality."</p> -->
+                <p>"PrimePicks offers the best tech product reviews, comparisons, and insights into the latest mobile technology trends."</p>
+            </div>
+
+            <div class="social-icon">
+                <ul>
+                    <li class="social-icon__item"><a class="social-icon__link" href="#">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="#">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="#">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a></li>
+                    <li class="social-icon__item"><a class="social-icon__link" href="#">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a></li>
+                </ul>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 Developed By © <span style="color: bisque; text-shadow: #333 1px 1px 4px;"> Magic Surgeon </span> | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>

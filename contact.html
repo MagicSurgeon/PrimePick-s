@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Top Pick's & Product Comparison</title>
+    <meta name="description" content="Magic!Surgeon - An elegantly responsive product comparison layout, seamlessly integrated with dynamic comparison functionality." />
+    <meta name="keywords" content="Top Pick's - Magic!Surgeon" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="images/logo/logo3.png"> <!-- icon on tab -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/body.css" />
+    <link rel="stylesheet" href="css/Blog.css">
+    <link rel="stylesheet" href="css/Hero_section.css">
+    <link rel="stylesheet" href="css/card_section.css">
+    <style>
+            /* General Contact Info Section Styling */
+        .contact-info h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .contact-info p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #666;
+    }
+
+    /* Contact Details Styling */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+    .contact-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 30px 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f); /* Vibrant gradient from deep blue to red */
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+        margin-bottom: 80px;
+    }
+
+    .contact-item {
+        background: linear-gradient(135deg, #1a2a6c, #2683fd); /* Gradient from coral to deep orange */
+        border-radius: 12px;
+        padding: 20px;
+        flex: 1;
+        min-width: 399px; /* Minimum width to maintain layout */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        border: 1px solid #333; /* Slightly darker border for definition */
+        text-align: center; /* Center text and icons */
+    }
+
+    .contact-item:hover {
+        transform: translateY(-10px); /* Slightly more lift on hover */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        background: linear-gradient(135deg, #2683fd, #1a2a6c); /* Reverse gradient for hover effect */
+    }
+
+    .contact-item i {
+        font-size: 3rem; /* Larger icon for better visual impact */
+        color: #ffffff; /* White color for icons for high contrast */
+        margin-bottom: 15px;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-item:hover i {
+        color: #ffeb3b; /* Bright yellow for hover effect */
+        transform: scale(1.1); /* Slightly enlarge icon on hover */
+    }
+
+    .contact-item h3 {
+        font-size: 1.7rem; /* Larger font size for headings */
+        margin-bottom: 10px;
+        color: #ffffff; /* Light color for headings */
+        font-weight: 600; /* Bold headings */
+    }
+
+    .contact-item p {
+        font-size: 1.2rem; /* Larger text for better readability */
+        color: #f5f5f5; /* Very light grey for text */
+        line-height: 1.6; /* Improve readability */
+    }
+
+    .contact-item a {
+        color: #ffeb3b; /* Bright yellow color for links */
+        text-decoration: none;
+        font-weight: 600; /* Bold links */
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        text-decoration: underline;
+        color: #ffd54f; /* Lighter yellow on hover */
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+    }
+
+    /* Contact Form Styling */
+    /* Advanced Contact Form Styling */
+    .contact-form {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.7));
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        max-width: 986px;
+        margin: 30px auto;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: 1px solid #e0e0e0; /* Subtle border for added depth */
+        backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+        margin-bottom: 140px;
+
+    }
+
+    .contact-form::before {
+        content: '';
+        position: absolute;
+        top: -15%;
+        left: -15%;
+        width: 130%;
+        height: 130%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+        z-index: 0;
+        opacity: 0.4;
+    }
+
+    .contact-form::after {
+        content: '';
+        position: absolute;
+        top: 20%;
+        right: 20%;
+        width: 150px;
+        height: 150px;
+        background: url('https://www.transparenttextures.com/patterns/brick-wall.png'); /* Subtle patterned background */
+        opacity: 0.1;
+        z-index: 0;
+    }
+
+    .contact-form h3 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .contact-form label {
+        display: block;
+        font-size: 1.2rem;
+        color: #444;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        color: #333;
+        font-size: 1.1rem;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        border-color: #00aaff;
+        outline: none;
+        box-shadow: 0 0 12px rgba(0, 170, 255, 0.5);
+        transform: scale(1.02);
+    }
+
+    .contact-form button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #00aaff, #0077ff);
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        z-index: 1;
+    }
+
+    .contact-form button:hover {
+        background: linear-gradient(135deg, #0077ff, #0056b3);
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Animated Input Effects */
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        padding-left: 50px;
+        position: relative;
+    }
+
+    .contact-form .form-group input::placeholder,
+    .contact-form .form-group textarea::placeholder {
+        color: #aaa; /* Subtle placeholder color */
+    }
+
+    /* Label Animation */
+    .contact-form .form-group input:focus ~ label,
+    .contact-form .form-group textarea:focus ~ label {
+        transform: translateY(-20px);
+        font-size: 0.9rem;
+        color: #00aaff;
+    }
+
+    /* Floating Label Effect */
+    .contact-form .form-group label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-form {
+            padding: 20px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+        }
+
+        .contact-form button {
+            padding: 14px;
+            font-size: 1.1rem;
+        }
+    }
+
+
+
+    /* Google Map Embed Styling */
+    .contact-map {
+        margin-top: 30px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px; /* More rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow effect */
+    }
+
+    /* Container for map responsiveness */
+    .contact-map::before {
+        content: '';
+        display: block;
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    .contact-map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-map iframe:hover {
+        transform: scale(1.05); /* Slightly larger zoom effect */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    }
+
+
+/* Vision Section Styling */
+.vision-section {
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.vision-images {
+    display: flex;
+    justify-content: center;
+    gap: 33px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.vision-images img {
+    width: 100%;
+    max-width: 413px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.vision-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+}
+
+.vision-text {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.vision-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.vision-text h2:hover {
+    color: #007BFF;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.vision-text p {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.vision-text p:hover {
+    color: #333;
+}
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-details {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            padding: 15px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.4rem;
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            padding: 20px;
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+        }
+
+        .contact-form button {
+            font-size: 1rem;
+        }
+    }
+
+            /* Portfolio Section */
+            #portfolio {
+            text-align: center;
+            padding: 60px 20px;
+            background: transparent;
+            color: #fff;
+        }
+
+        #portfolio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f0f0f0;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #ff00a1);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Grid Layout for Portfolio Items */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 461px); /* 3 items per row with fixed width */
+            gap: 20px;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Item Styling */
+        .portfolio-item {
+            position: relative;
+            width: 461px;
+            height: 249px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Image Styling */
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            opacity: 0.8;
+        }
+
+        /* Overlay Styling */
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* about section */
+        .about {
+            margin-bottom: 80px;
+        }
+        .about h2, .features h2, .testimonials h2, .portfolio h2, .cta-section h2, .contact-details1 {
+            font-size: 2.5rem;
+            margin-bottom: 26px;
+            color:#00d4ff;;
+        }
+
+        .about h2::after, .features h2::after, .testimonials h2::after, .portfolio h2::after, .cta-section h2::after, .contact-details1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #007bff;
+            margin: 0 auto;
+            margin-top: 13px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 760px;
+            margin: 0 auto 30px;
+        }
+
+        .about img {
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgb(57 55 55); /* Add shadow */
+        }
+
+        .about img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgb(57 55 55); /* Increase shadow on hover */
+        }
+
+    </style>
+</head>
+<body>
+   <!-- Main view -->
+   <div class="view">
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo/logo3.png" alt="">
+                <a href="index.html">PrimePicks</a>
+            </div>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="right-menu">
+                <a href="https://wa.me/YOUR_PHONE_NUMBER" class="cta-btn">
+                    <i class="fa fa-whatsapp"><b>Join Us</b></i>
+                </a>
+                <div class="menu-dots" id="menu-dots">
+                    <i class="fa fa-ellipsis-v"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+    
+    <!-- Hero section start -->
+    <div class="hero">
+        <h1 class="hero-heading">Contact Us</h1>
+        <p class="hero-caption">"We’d love to hear from you! Reach out to us through the form or via the contact details below."</p>
+    </div>
+
+
+
+    <!-- Content -->
+    <div class="content" style="align-items: center; padding-bottom: 0;">
+        <section class="about" id="about">
+            <h2>We’re Here to Help</h2>
+            <p>Our team is dedicated to providing you with the best support. Whether you have questions about our services, need assistance with mobile comparisons, or just want to chat about the latest tech trends, we're here for you.</p>
+            <img src="images/work5.jpeg" alt="About Us" style="max-width: 1500px; max-height: 560px; overflow: hidden; position: relative; width: 100%;">
+        </section>
+
+        <h2 class="contact-details1">Our Contact Information</h2>
+        <div class="contact-details" >
+            <div class="contact-item">
+                <i class="fas fa-envelope-open-text"></i>
+                <h3>Email</h3>
+                <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Phone</h3>
+                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Address</h3>
+                <p>123 Main Street, Suite 101, City Name, Country</p>
+            </div>
+        </div>
+
+       
+         <!-- Contact Form -->
+         <div class="contact-form">
+            <form action="submit.php" method="post" style="width: 876px;">
+                <h3>Contact Us</h3>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+
+        <!-- Vision Section -->
+        <div class="vision-section">
+            <div class="vision-images" >
+                <img src="images/work.jpeg" alt="Vision Image 1">
+                <img src="images/work2.jpeg" alt="Vision Image 2">
+                <img src="images/work3.jpeg" alt="Vision Image 3">
+                <!-- Add more images as needed -->
+            </div>
+            <div class="vision-text">
+                <h2>Our Vision</h2>
+                <p>At Prime  Pick's, we are driven by a passion for innovation and excellence. Our vision behind creating a product comparison website is to empower users with the most accurate, up-to-date, and comprehensive comparisons available. We strive to deliver a seamless user experience, enabling informed decisions through cutting-edge technology and intuitive design. Join us in revolutionizing the way you compare and choose products.</p>
+            </div>
+        </div>
+        
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <h2>Our Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/logo/mkk/Modern Workspace with Ambient Lighting.jpeg" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>Project Alpha</h3>
+                        <p>Designed and implemented a comprehensive comparison tool for tech gadgets, helping users make informed purchase decisions with ease.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/logo/mkk/alexander-andrews-JYGnB9gTCls-unsplash.jpg" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Service Beta</h3>
+                        <p>Developed a user-friendly platform for comparing financial products, ensuring transparency and ease of understanding for all users.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/logo/mkk/gilles-lambert-pb_lF8VWaPU-unsplash.jpg" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Campaign Gamma</h3>
+                        <p>Launched an innovative comparison site for travel deals, offering real-time updates and detailed insights to maximize user savings.</p>
+                    </div>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </section>
+
+         <!-- Google Map Embed -->
+         <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.150226983751!2d-122.41941548468161!3d37.77492977975911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c567a2b47%3A0x9f1f65fd0f8b6d6a!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1630720811074!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+
+    <!-- foooer Section -->
+    <div id="footer-placeholder" class="footer_section" style="margin-bottom: 0; padding: 0; margin-top: 111px;"></div>
+
+    </div>
+
+
+    <script src="js/blog.js"></script>
+    <script src="js/Hero_section.js"></script>
+    <!-- foooer Section Start-->
+    <script>
+        // Function to load the footer
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        }
+
+        // Call the function to load the footer
+        loadFooter();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- foooer Section end-->
+
+</body>
+</html>

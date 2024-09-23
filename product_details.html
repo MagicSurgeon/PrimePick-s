@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Top Pick's &amp; Product Details</title>
+		<meta name="description" content="Magic!Surgeon - An elegantly responsive product comparison layout, seamlessly integrated with dynamic comparison functionality." />
+		<meta name="keywords" content="Top Pick's - Magic!Surgeon" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="images/logo/logo3.png"> <!-- icon on tab -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="css/body.css" />
+		<link rel="stylesheet" type="text/css" href="css/prduct_details.css" />
+        <link rel="stylesheet" href="css/card_section.css">
+		<!-- Modernizr is used for flexbox fallback -->
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body>
+		<div>
+            <div class="starsec"></div>
+            <div class="starthird"></div>
+            <div class="starfourth"></div>
+            <div class="starfifth"></div>
+            </div>
+            
+   <!-- Main view -->
+   <div class="view">
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo/logo3.png" alt="">
+                <a href="index.html">PrimePicks</a>
+            </div>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="right-menu">
+                <a href="https://wa.me/YOUR_PHONE_NUMBER" class="cta-btn">
+                    <i class="fa fa-whatsapp"><b>Join Us</b></i>
+                </a>
+                <div class="menu-dots" id="menu-dots">
+                    <i class="fa fa-ellipsis-v"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+        
+            <!-- product section -->
+                <div id="mainContainer">
+                    <!--dust particel-->
+                    <div class="margin-body">
+                    
+                    
+                    <!--Dust particle end--->
+                    <div id="productDetails">
+                        <!-- Product details will be inserted here dynamically -->
+                    
+
+                    
+
+                      
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const params = new URLSearchParams(window.location.search);
+                        const productId = params.get('id');
+                
+                        fetch('json/products.json')
+                            .then(response => response.json())
+                            .then(products => {
+                                const product = products.find(p => p.id === parseInt(productId));
+                
+                                if (product) {
+                                    const productDetails = document.getElementById('productDetails');
+                                    productDetails.innerHTML = `
+                                        
+                                        
+                                        <div class="row" style="margin-bottom: 306px;">                    
+                                        <div class="col-sm-3 col-md-3 pricing-column-wrapper">
+
+                                        <div class="block1" style="display: flex; justify-content: space-around;">
+                                        <div class="image">
+                                            <div id="image" class="pricing-price">
+                                                <img src="${product.image}" alt="image" style="height: 100%; margin-top: -28px;">
+                                            </div>
+                                        </div>
+
+                                        <div class="circle">
+                                            <div class="pricing-price-row">
+                                            <div class="pricing-price">
+                                            <div class="pricing-cost">98%</div>
+                                            <div class="time">Match's for you</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="pricing-column">
+                                        </div>
+                                            
+                                        <div class="block2">
+                                            <figure class="info">
+                                                <div class="product__heading">General Specifications</div>
+                                                <div class="product__detail"><span class="product__label">Model Name:</span><span class="product__value">${product.modelName}</span></div>
+                                                <div class="product__detail"><span class="product__label">Release Date:</span><span class="product__value">${product.releaseDate}</span></div>
+                                                <div class="product__detail"><span class="product__label">Operating System:</span><span class="product__value">${product.operatingSystem}</span></div>
+                                                <div class="product__detail"><span class="product__label">User Interface:</span><span class="product__value">${product.userinterface}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Design and Build</div>
+                                                <div class="product__detail"><span class="product__label">Dimensions:</span><span class="product__value">${product.dimensions}</span></div>
+                                                <div class="product__detail"><span class="product__label">Weight:</span><span class="product__value">${product.weight}</span></div>
+                                                <div class="product__detail"><span class="product__label">Build Materials:</span><span class="product__value">${product.buildMaterials}</span></div>
+                                                <div class="product__detail"><span class="product__label">Colors Available:</span><span class="product__value">${product.colors.join(', ')}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Display</div>
+                                                <div class="product__detail"><span class="product__label">Type:</span><span class="product__value">${product.displayType}</span></div>
+                                                <div class="product__detail"><span class="product__label">Size:</span><span class="product__value">${product.displaySize}</span></div>
+                                                <div class="product__detail"><span class="product__label">Resolution:</span><span class="product__value">${product.displayResolution}</span></div>
+                                                <div class="product__detail"><span class="product__label">Refresh Rate:</span><span class="product__value">${product.displayrefreshrate}</span></div>
+                                                <div class="product__detail"><span class="product__label">Protection:</span><span class="product__value">${product.displayprotection}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Performance</div>
+                                                <div class="product__detail"><span class="product__label">Processor:</span><span class="product__value">${product.processor}</span></div>
+                                                <div class="product__detail"><span class="product__label">GPU:</span><span class="product__value">${product.gpu}</span></div>
+                                                <div class="product__detail"><span class="product__label">RAM:</span><span class="product__value">${product.ram}</span></div>
+                                                <div class="product__detail"><span class="product__label">Storage Options:</span><span class="product__value">${product.storageOptions.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Expandable Storage:</span><span class="product__value">${product.expandableStorage}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Battery</div>
+                                                <div class="product__detail"><span class="product__label">Capacity:</span><span class="product__value">${product.batteryCapacity}</span></div>
+                                                <div class="product__detail"><span class="product__label">Type:</span><span class="product__value">${product.chargingType}</span></div>
+                                                <div class="product__detail"><span class="product__label">Charging:</span><span class="product__value">${product.charging}</span></div>
+                                                <div class="product__detail"><span class="product__label">Charging Speed:</span><span class="product__value">${product.chargingSpeed}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Camera</div>
+                                                <div class="product__detail"><span class="product__label">Rear Camera(s):</span><span class="product__value">${product.rearCameras.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Main Sensor:</span><span class="product__value">${product.mainSensor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Secondary Sensors:</span><span class="product__value">${product.secondarySensors.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Front Camera:</span><span class="product__value">${product.frontCamera}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Connectivity</div>
+                                                <div class="product__detail"><span class="product__label">Network:</span><span class="product__value">${product.network}</span></div>
+                                                <div class="product__detail"><span class="product__label">Wi-Fi:</span><span class="product__value">${product.wifi}</span></div>
+                                                <div class="product__detail"><span class="product__label">Bluetooth:</span><span class="product__value">${product.bluetooth}</span></div>
+                                                <div class="product__detail"><span class="product__label">GPS:</span><span class="product__value">${product.gps}</span></div>
+                                                <div class="product__detail"><span class="product__label">USB:</span><span class="product__value">${product.usb}</span></div>
+                                                <div class="product__detail"><span class="product__label">NFC:</span><span class="product__value">${product.nfc}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Audio</div>
+                                                <div class="product__detail"><span class="product__label">Speakers:</span><span class="product__value">${product.speakers}</span></div>
+                                                <div class="product__detail"><span class="product__label">Audio Jack:</span><span class="product__value">${product.audioJack}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Sensors</div>
+                                                <div class="product__detail"><span class="product__label">Face ID:</span><span class="product__value">${product.faceId}</span></div>
+                                                <div class="product__detail"><span class="product__label">Accelerometer:</span><span class="product__value">${product.accelerometer}</span></div>
+                                                <div class="product__detail"><span class="product__label">Gyroscope:</span><span class="product__value">${product.gyroscope}</span></div>
+                                                <div class="product__detail"><span class="product__label">Proximity Sensor:</span><span class="product__value">${product.proximitysensor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Compass:</span><span class="product__value">${product.compass}</span></div>
+                                                <div class="product__detail"><span class="product__label">Barometer:</span><span class="product__value">${product.barometer}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Additional Features</div>
+                                                <div class="product__detail"><span class="product__label">Sensors:</span><span class="product__value">${product.sensors.join(', ')}</span></div>
+                                                <div class="product__detail"><span class="product__label">Water Resistance:</span><span class="product__value">${product.waterResistance}</span></div>
+                                                <div class="product__detail"><span class="product__label">Dust Resistance:</span><span class="product__value">${product.dustResistance}</span></div>
+                                                <div class="product__detail"><span class="product__label">Stereo Speakers:</span><span class="product__value">${product.stereoSpeakers}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading style="color: #DFFF00;">PrimePick's Conclusion</div>
+                                                <div class="product__detail"><span class="product__label">Perfect For:</span><span class="product__value">${product.perfectfor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Not Ideal For:</span><span class="product__value">${product.notperfectfor}</span></div>
+                                                <div class="product__detail"><span class="product__label">Best Features:</span><span class="product__value">${product.bestfeatures}</span></div>
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Prices</div>
+                                                <div class="product__price-section">
+                                                    <div class="price-details">
+                                                        <span class="product__price animated-price">Sale Price: ₹<b>${product.price}</b></span>
+                                                        <span class="product__discount">${product.discount}% Off</span>
+                                                    </div>
+                                                    <span class="product__mrp">MRP: ₹${product.mrp}</span>
+                                                </div>
+
+                                            </figure>
+                                            <figure class="info">
+                                                <div class="product__heading">Available on:</div>
+                                                <div class="product__detail"><span class="product__label">Best Features:</span><span class="product__value">${product.availability}</span></div>
+                                            </figure>
+                                            <div class="pricing-footer">
+                                                <div class="gem-button-container gem-button-position-center">
+                                                    <a class="gem-button gem-orange" href="http://">Your Perfect Deal Awaits!</a>
+                                                    <!-- Home Button -->
+                                                    <a class="gem-button gem-blue" href="index.html">Home</a>
+                                                </div>
+                                            </div>
+                                            <!-- Scroll to Top Button -->
+                                            <a href="#" class="scroll-to-top" title="Scroll to Top">&#9650;</a>
+
+                                        </div>
+                                        
+                                    `;
+                                } else {
+                                    document.getElementById('productDetails').innerHTML = '<p>Product not found</p>';
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error fetching products:', error);
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+            <!-- foooer Section -->
+        <div id="footer-placeholder" class="footer_section" style="padding: 0;"></div>
+
+        <!-- foooer Section Start-->
+        <script>
+            // Function to load the footer
+            function loadFooter() {
+                fetch('footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('footer-placeholder').innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading footer:', error));
+            }
+
+            // Call the function to load the footer
+            loadFooter();
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <!-- foooer Section end-->
+                        
+</body>
+</html>

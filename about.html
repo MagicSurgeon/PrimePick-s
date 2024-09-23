@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Top Pick's & Product Comparison</title>
+    <meta name="description" content="Magic!Surgeon - An elegantly responsive product comparison layout, seamlessly integrated with dynamic comparison functionality." />
+    <meta name="keywords" content="Top Pick's - Magic!Surgeon" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="images/logo/logo3.png"> <!-- icon on tab -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/body.css" />
+    <link rel="stylesheet" href="css/Blog.css">
+    <link rel="stylesheet" href="css/Hero_section.css">
+    <link rel="stylesheet" href="css/card_section.css">
+    <style>
+       
+        /* Content Section Styles */
+        .content {
+            padding: 30px 0 0 0;
+            text-align: center;
+            background-color: #000000;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .about h2, .features h2, .testimonials h2, .portfolio h2, .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 26px;
+            color:#00d4ff;;
+        }
+
+        .about h2::after, .features h2::after, .testimonials h2::after, .portfolio h2::after, .cta-section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #007bff;
+            margin: 0 auto;
+            margin-top: 13px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            max-width: 760px;
+            margin: 0 auto 30px;
+        }
+
+        .about img {
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgb(57 55 55); /* Add shadow */
+        }
+
+        .about img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgb(57 55 55); /* Increase shadow on hover */
+        }
+
+
+        /* Feature Grid Styles */
+        .feature-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Modern Glassmorphism Card Style */
+        .feature {
+            width: 280px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Adding subtle gradient border effect */
+        .feature:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #00d4ff, #ff00a1);
+            filter: blur(30px);
+            opacity: 0.4;
+            transition: 0.4s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature:hover:before {
+            opacity: 0.7;
+        }
+
+        .feature img {
+            width: 70px;
+            margin-bottom: 15px;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.6));
+        }
+
+        .feature:hover img {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.9));
+        }
+
+        .feature h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #00d4ff, #ff00a1);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #f0f0f0;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+
+        /* Testimonials Section */
+        #testimonials {
+            text-align: center;
+            padding: 60px 20px;
+            background: transparent;
+            color: #fff;
+        }
+
+        /* Modern Grid Layout */
+        .testimonial-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Testimonial Card */
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 350px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center; /* Center text in the card */
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Fancy Overlay */
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .testimonial:hover::before {
+            opacity: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Client Image */
+        .testimonial-image {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-image img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff00a1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Blockquote Styling */
+        .testimonial blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            color: #f1f1f1;
+            position: relative;
+            padding-left: 40px;
+            background: rgba(255, 255, 255, 0.1); /* Add a slight background */
+            border-left: 3px solid #ff00a1;
+            padding: 15px 20px;
+            border-radius: 10px;
+        }
+
+        .testimonial blockquote i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            color: #ff00a1;
+            opacity: 0.7;
+        }
+
+        /* Testimonial Author */
+        .testimonial p {
+            color: #aaa;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 10px;
+            background: linear-gradient(45deg, #00d4ff, #ff00a1);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Testimonial Position */
+        .testimonial .testimonial-position {
+            color: #fff;
+            font-size: 0.9rem;
+            font-style: italic;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* H2 Styling */
+        #testimonials h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f0f0f0;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #ff00a1);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+
+        /* Portfolio Section */
+        #portfolio {
+            text-align: center;
+            padding: 60px 20px;
+            background: transparent;
+            color: #fff;
+        }
+
+        #portfolio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #f0f0f0;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #ff00a1);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Grid Layout for Portfolio Items */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 461px); /* 3 items per row with fixed width */
+            gap: 20px;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Item Styling */
+        .portfolio-item {
+            position: relative;
+            width: 461px;
+            height: 249px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Image Styling */
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            opacity: 0.8;
+        }
+
+        /* Overlay Styling */
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #4a4a4a, #2c2c2c), url('images/cta-background.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 33px 33px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            width: 96%;
+            height: 229px;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .cta-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px; /* Adjust as needed */
+            margin: 0 auto;
+            padding: 0px 53px;;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Ensure responsiveness on smaller screens */
+        }
+
+        .cta-text {
+            max-width: 60%; /* Adjust as needed */
+            text-align: left;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff8c00, #f0f8ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .cta-section button {
+            background-color: #ff8c00;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-section button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%) rotate(45deg);
+            z-index: 0;
+            transition: all 0.4s ease;
+        }
+
+        .cta-section button:hover::before {
+            width: 0;
+            height: 0;
+        }
+
+        .cta-section button i {
+            font-size: 1.2rem;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-section button:hover i {
+            transform: translateX(5px);
+        }
+
+        .cta-section button .button-text {
+            position: relative;
+            z-index: 1;
+        }
+        /* hero section */
+        .hero-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        }
+
+        .text-section {
+        flex: 1;
+        max-width: 50%;
+        text-align: left;
+        margin: 0 0 0 50px;
+        }
+
+        .image-section {
+        flex: 1;
+        max-width: 50%;
+        text-align: right;
+        margin-right: -50px;
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out 0.6s forwards;        
+        }
+
+        .image-section img {
+        max-width: 100%;
+        height: auto;
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+        }
+
+        .hero-heading {
+            margin-bottom: 10px;
+            margin-top: 30%;
+            margin-left: 169px;
+        }
+
+        .hero-caption {
+            font-size: 1rem;
+            line-height: 2.0;
+            width: 620px;
+            margin: 0px 0 0 173px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Main view -->
+    <div class="view">
+        <header class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/logo/logo3.png" alt="">
+                    <a href="index.html">PrimePicks</a>
+                </div>
+                <nav class="main-nav" id="main-nav">
+                    <ul>
+                        <li><a href="index.html" >Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="right-menu">
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="cta-btn">
+                        <i class="fa fa-whatsapp"><b>Join Us</b></i>
+                    </a>
+                    <div class="menu-dots" id="menu-dots">
+                        <i class="fa fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    
+    
+    <!-- Hero section start -->
+    <div class="hero">
+        <div class="hero-content">
+          <div class="text-section">
+            <h1 class="hero-heading">About Us</h1>
+            <p class="hero-caption">"Stay updated with the latest trends, innovations, and expert insights in mobile technology. From groundbreaking devices to cutting-edge software, we've got everything you need to know."</p>
+          </div>
+          <div class="image-section">
+            <img src="images/logo/Robotic.png" alt="Mobile Technology" />
+          </div>
+        </div>
+      </div>
+      
+    
+    <!-- Content -->
+    <div class="content" style="align-items: center;">
+        <section class="about" id="about">
+            <h2>Who We Are</h2>
+            <p>We provide expert analysis and comparison of the latest mobile phones to help you make an informed decision. Our mission is to simplify your shopping experience and guide you towards the perfect mobile phone for your needs.</p>
+            <img src="images/AR_and_VR_in_Mobile.png" alt="About Us">
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2>Our Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <img src="images/logo/headphone.png" alt="Feature 1">
+                    <h3>Detailed Comparisons</h3>
+                    <p>Get in-depth side-by-side comparisons of all the latest devices.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/logo/speaker2.png" alt="Feature 2">
+                    <h3>Expert Reviews</h3>
+                    <p>Read professional reviews from industry experts.</p>
+                </div>
+                <div class="feature">
+                    <img src="images/logo/Robotic.png" alt="Feature 3">
+                    <h3>User Ratings</h3>
+                    <p>See what other users think about the latest phones.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="images/logo/f3.png" alt="Client Photo">
+                    </div>
+                    <blockquote>
+                        <i class="fa fa-quote-left"></i> 
+                        "PrimePicks made choosing my new phone so easy! Highly recommend."
+                    </blockquote>
+                    <p>- John Doe</p>
+                    <span class="testimonial-position">CEO, TechCorp</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="images/logo/m2.png" alt="Client Photo">
+                    </div>
+                    <blockquote>
+                        <i class="fa fa-quote-left"></i> 
+                        "Thanks to PrimePicks, I found the perfect phone that fits my budget and needs."
+                    </blockquote>
+                    <p>- Jane Smith</p>
+                    <span class="testimonial-position">Marketing Manager, InnovateX</span>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="images/logo/f5.png" alt="Client Photo">
+                    </div>
+                    <blockquote>
+                        <i class="fa fa-quote-left"></i> 
+                        "The variety and quality of options were fantastic. Very satisfied!"
+                    </blockquote>
+                    <p>- Alice Johnson</p>
+                    <span class="testimonial-position">Product Lead, NextGenTech</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <h2>Our Work</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/logo/mkk/Modern Workspace with Ambient Lighting.jpeg" alt="Project 1">
+                    <div class="portfolio-overlay">
+                        <h3>Project Alpha</h3>
+                        <p>Designed and implemented a comprehensive comparison tool for tech gadgets, helping users make informed purchase decisions with ease.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/logo/mkk/alexander-andrews-JYGnB9gTCls-unsplash.jpg" alt="Project 2">
+                    <div class="portfolio-overlay">
+                        <h3>Service Beta</h3>
+                        <p>Developed a user-friendly platform for comparing financial products, ensuring transparency and ease of understanding for all users.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/logo/mkk/gilles-lambert-pb_lF8VWaPU-unsplash.jpg" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>Campaign Gamma</h3>
+                        <p>Launched an innovative comparison site for travel deals, offering real-time updates and detailed insights to maximize user savings.</p>
+                    </div>
+                </div>
+                <!-- Add more portfolio items as needed -->
+            </div>
+        </section>
+        
+        <!-- Call-to-Action Section -->
+        <section class="cta-section" id="contact">
+            <div class="cta-container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Get in Touch</h2>
+                        <p>We’d love to hear from you. Reach out to us for any inquiries or feedback.</p>
+                    </div>
+                    <button aria-label="Contact Us">
+                        <span class="button-text">Contact Us</span>
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    <!-- foooer Section -->
+    <div id="footer-placeholder" class="footer_section" style="margin-bottom: 0; padding: 0;"></div>
+
+    </div>
+
+
+    <script src="js/blog.js"></script>
+    <script src="js/Hero_section.js"></script>
+    <!-- foooer Section Start-->
+    <script>
+        // Function to load the footer
+        function loadFooter() {
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        }
+
+        // Call the function to load the footer
+        loadFooter();
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- foooer Section end-->
+
+</body>
+</html>
